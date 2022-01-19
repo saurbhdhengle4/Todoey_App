@@ -1,0 +1,4 @@
+model view controller
+m - model - dart& logic
+v - view - User interface
+c - controller -mediator

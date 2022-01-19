@@ -1,0 +1,28 @@
+// ignore_for_file: file_names
+
+import 'package:flutter/material.dart';
+import 'package:todoey/Model/task_data.dart';
+import 'package:todoey/Widget/Task_Tile.dart';
+import 'package:provider/provider.dart';
+
+class TaskList extends StatelessWidget {
+  const TaskList({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+        itemCount: Provider.of<TaskData>(context).tasks.length,
+        itemBuilder: (context, index) {
+          return TaskTile(
+            isChecked: Provider.of<TaskData>(context).tasks[index].isDone,
+            taskTitle:
+                Provider.of<TaskData>(context).tasks[index].name.toString(),
+            checkboxCallback: (valuenew) {
+              // setState(() {
+              //   Provider.of<TaskData>(context).tasks [index].toggleDone();
+              // });
+            },
+          );
+        });
+  }
+}

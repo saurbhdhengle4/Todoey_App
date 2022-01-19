@@ -1,0 +1,33 @@
+import 'package:flutter/material.dart';
+import 'package:todoey/Model/Task.dart';
+import 'package:todoey/Widget/TaskTile.dart';
+
+class TaskList extends StatefulWidget {
+  @override
+  State<TaskList> createState() => _TaskListState();
+}
+
+class _TaskListState extends State<TaskList> {
+  List<Task?> tasks = [
+    Task(name: 'Bay milk'),
+    Task(name: 'Bay eggs'),
+    Task(name: 'Bay bread'),
+  ];
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      children: <Widget>[
+        TaskTile(
+          taskTitle: tasks[0]!.name.toString(),
+          isChecked: tasks[0]!.isDone,
+        ),
+        TaskTile(
+          taskTitle: tasks[1]!.name.toString(),
+          isChecked: tasks[1]!.isDone,
+        ),
+        TaskTile(
+            taskTitle: tasks[2]!.name.toString(), isChecked: tasks[2]!.isDone),
+      ],
+    );
+  }
+}
